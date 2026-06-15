@@ -1,0 +1,38 @@
+# ─── Planning / guidance docs (owner preference: keep local, do not push) ───
+# These remain on disk as guidance for development but are not committed.
+/docs/
+/CLAUDE.md
+
+# ─── Secrets & environment ───
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+**/application-local.properties
+**/application-local.yml
+
+# ─── Node / Next.js (frontend, created in Phase 0) ───
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── Java / Spring Boot (backend, created in Phase 0) ───
+target/
+build/
+.gradle/
+*.class
+!.mvn/wrapper/maven-wrapper.jar
+
+# ─── OS / editor ───
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml

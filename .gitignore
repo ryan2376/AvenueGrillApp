@@ -3,6 +3,9 @@
 /docs/
 /CLAUDE.md
 
+# ─── Source brand & food images (large originals; web-optimized copies live in frontend/public) ───
+/images/
+
 # ─── Secrets & environment ───
 .env
 .env.*

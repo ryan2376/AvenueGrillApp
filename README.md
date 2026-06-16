@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/rounded%20avenue.png" alt="Avenue Grill & Restaurant" width="160" />
+  <img src="frontend/public/brand/badge.png" alt="Avenue Grill & Restaurant" width="150" />
 
   # Avenue Grill & Restaurant
 
@@ -68,7 +68,7 @@ AvenueGrillApp/
 ├── backend/           # Spring Boot app        (created in Phase 0)
 ├── infra/             # docker-compose, deploy (created in Phase 0)
 ├── .github/workflows/ # CI/CD pipelines        (created in Phase 0)
-└── images/            # brand assets
+└── images/            # brand/food source originals (local, git-ignored)
 ```
 
 ## Contact

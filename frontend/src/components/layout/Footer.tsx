@@ -11,17 +11,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
-          <Link href="/" className="flex items-center gap-3" aria-label={site.name}>
+          <Link href="/" className="inline-flex items-center" aria-label={site.name}>
             <Image
-              src="/brand/logo.png"
+              src="/brand/logo-light.png"
               alt={`${site.name} logo`}
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-full"
+              width={1274}
+              height={837}
+              className="h-16 w-auto"
             />
-            <span className="font-display text-lg font-bold text-brand-cream">
-              {site.shortName}
-            </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-brand-cream/70">
             {site.subTagline}

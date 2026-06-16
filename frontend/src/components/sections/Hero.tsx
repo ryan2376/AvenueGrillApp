@@ -48,17 +48,20 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Showcase image (brand flyer until food photography is shot) */}
+        {/* Showcase image */}
         <div className="animate-fade-up [animation-delay:120ms]">
-          <div className="relative mx-auto max-w-sm rotate-1 overflow-hidden rounded-3xl border-4 border-brand-cream/10 shadow-2xl">
+          <div className="relative mx-auto max-w-md rotate-1 overflow-hidden rounded-3xl border-4 border-brand-cream/10 shadow-2xl">
             <Image
-              src="/brand/flyer-1.png"
-              alt="Avenue Grill & Restaurant signature dishes"
-              width={800}
-              height={1100}
+              src="/food/grilled-chicken.jpg"
+              alt="Flame-grilled chicken at Avenue Grill & Restaurant"
+              width={1080}
+              height={1080}
               className="h-auto w-full"
               priority
             />
+            <span className="absolute bottom-4 left-4 rounded-full bg-brand-green/90 px-3 py-1 text-sm font-medium text-brand-cream">
+              Fresh off the grill 🔥
+            </span>
           </div>
         </div>
       </div>

@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Camera } from "lucide-react";
-import { signatureCategories } from "@/lib/menu-data";
+import { allItems } from "@/lib/menu-data";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: `A look at ${site.name} — our brand, our flavours, and the moments we serve up in ${site.address.town}.`,
+  description: `A feast for the eyes — the dishes and flavours of ${site.name} in ${site.address.town}.`,
 };
+
+// Food photos + the delivery shot, for a rich visual grid.
+const gallery = [
+  ...allItems.map((i) => ({ src: i.image, label: i.name })),
+  { src: "/food/delivery.jpg", label: "Delivered fresh" },
+];
 
 export default function GalleryPage() {
   return (
@@ -17,46 +22,47 @@ export default function GalleryPage() {
           <p className="font-semibold uppercase tracking-wider text-brand-amber">Gallery</p>
           <h1 className="mt-3 font-display text-4xl font-bold sm:text-5xl">A feast for the eyes</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-brand-cream/80">
-            A glimpse of the Avenue Grill experience. Fresh food photography is on the way — here&apos;s
-            our brand and flavours in the meantime.
+            A glimpse of the Avenue Grill experience — grilled to perfection and made with love.
           </p>
         </div>
       </section>
 
-      {/* Brand artwork */}
+      {/* Food grid */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {[
-            { src: "/brand/flyer-1.png", alt: "Avenue Grill — Good Food. Great Mood. Better Together." },
-            { src: "/brand/flyer-2.png", alt: "Avenue Grill — Delicious by passion, served with dedication." },
-          ].map((img) => (
-            <div key={img.src} className="overflow-hidden rounded-3xl border border-brand-charcoal/10 shadow-sm">
-              <Image src={img.src} alt={img.alt} width={900} height={1240} className="h-auto w-full" />
-            </div>
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
+          {gallery.map((img) => (
+            <figure
+              key={img.src}
+              className="group relative aspect-square overflow-hidden rounded-2xl border border-brand-charcoal/10 shadow-sm"
+            >
+              <Image
+                src={img.src}
+                alt={img.label}
+                fill
+                sizes="(max-width: 640px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                <span className="font-display text-lg font-semibold text-white">{img.label}</span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
 
-      {/* Placeholder food tiles */}
+      {/* Brand artwork */}
       <section className="bg-brand-cream">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <h2 className="text-center font-display text-2xl font-bold text-brand-green sm:text-3xl">
-            On the grill
+            Our brand
           </h2>
-          <p className="mt-2 text-center text-sm text-brand-charcoal/60">
-            Photography coming soon — a taste of what&apos;s cooking.
-          </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {signatureCategories.map(({ name, icon: Icon }) => (
-              <div
-                key={name}
-                className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-green/30 bg-white text-brand-green/70"
-              >
-                <Icon className="h-10 w-10" aria-hidden />
-                <span className="font-display text-lg font-semibold">{name}</span>
-                <span className="inline-flex items-center gap-1 text-xs text-brand-charcoal/40">
-                  <Camera className="h-3.5 w-3.5" aria-hidden /> photo coming soon
-                </span>
+          <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
+            {[
+              { src: "/brand/flyer-1.png", alt: "Avenue Grill — Good Food. Great Mood. Better Together." },
+              { src: "/brand/flyer-2.png", alt: "Avenue Grill — Delicious by passion, served with dedication." },
+            ].map((img) => (
+              <div key={img.src} className="overflow-hidden rounded-3xl border border-brand-charcoal/10 shadow-sm">
+                <Image src={img.src} alt={img.alt} width={900} height={1240} className="h-auto w-full" />
               </div>
             ))}
           </div>

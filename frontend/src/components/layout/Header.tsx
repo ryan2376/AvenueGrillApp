@@ -19,19 +19,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-brand-charcoal/10 bg-brand-cream/90 backdrop-blur supports-[backdrop-filter]:bg-brand-cream/75">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3" aria-label={site.name}>
+        {/* Logo (wordmark included in the image) — black-text version for the light header */}
+        <Link href="/" className="flex items-center" aria-label={site.name}>
           <Image
-            src="/brand/logo.png"
+            src="/brand/logo-dark.png"
             alt={`${site.name} logo`}
-            width={44}
-            height={44}
-            className="h-11 w-11 rounded-full"
+            width={1274}
+            height={837}
+            className="h-12 w-auto sm:h-14"
             priority
           />
-          <span className="hidden text-lg font-display font-bold text-brand-green sm:block">
-            {site.shortName}
-          </span>
         </Link>
 
         {/* Desktop nav */}

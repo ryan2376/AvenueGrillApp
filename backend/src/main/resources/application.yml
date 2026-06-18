@@ -11,10 +11,9 @@ spring:
     hibernate:
       ddl-auto: validate          # schema is owned by Flyway, never auto-generated
     open-in-view: false
-    properties:
-      hibernate:
-        jdbc:
-          time_zone: UTC           # all timestamps stored in UTC; display in EAT
+    # NOTE: We deliberately do NOT set hibernate.jdbc.time_zone. Timestamps use
+    # `timestamptz`/`Instant` (inherently UTC), and forcing UTC shifts TIME columns
+    # (store open/close hours) by the JVM offset. EAT display is handled in the app.
 
   flyway:
     enabled: true

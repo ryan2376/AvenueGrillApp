@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "@/lib/config";
+import type { MenuItem, MenuResponse, StoreStatus } from "@/lib/types";
 
 /** Error envelope returned by the backend (see docs/04-API-SPECIFICATION.md). */
 export interface ApiErrorBody {
@@ -63,4 +64,19 @@ export interface PingResponse {
 
 export function ping(): Promise<PingResponse> {
   return apiFetch<PingResponse>("/ping");
+}
+
+/** Fetch the full menu (active categories with their items). */
+export function getMenu(): Promise<MenuResponse> {
+  return apiFetch<MenuResponse>("/menu");
+}
+
+/** Fetch a single menu item by id. */
+export function getMenuItem(id: string): Promise<MenuItem> {
+  return apiFetch<MenuItem>(`/menu/items/${id}`);
+}
+
+/** Fetch current store status (hours, open-now, fees). */
+export function getStoreStatus(): Promise<StoreStatus> {
+  return apiFetch<StoreStatus>("/store/status");
 }

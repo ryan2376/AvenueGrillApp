@@ -1,5 +1,14 @@
 import { API_BASE_URL } from "@/lib/config";
-import type { MenuItem, MenuResponse, StoreStatus } from "@/lib/types";
+import type {
+  CreateOrderRequest,
+  DeliveryZone,
+  MenuItem,
+  MenuResponse,
+  OrderDetail,
+  OrderResponse,
+  OrderStatusResponse,
+  StoreStatus,
+} from "@/lib/types";
 
 /** Error envelope returned by the backend (see docs/04-API-SPECIFICATION.md). */
 export interface ApiErrorBody {
@@ -79,4 +88,27 @@ export function getMenuItem(id: string): Promise<MenuItem> {
 /** Fetch current store status (hours, open-now, fees). */
 export function getStoreStatus(): Promise<StoreStatus> {
   return apiFetch<StoreStatus>("/store/status");
+}
+
+/** Delivery zones with their flat fees (for the checkout dropdown). */
+export function getDeliveryZones(): Promise<DeliveryZone[]> {
+  return apiFetch<DeliveryZone[]>("/store/delivery-zones");
+}
+
+/** Place an order. Totals are recomputed server-side; the response is authoritative. */
+export function createOrder(body: CreateOrderRequest): Promise<OrderResponse> {
+  return apiFetch<OrderResponse>("/orders", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}
+
+/** Full order by reference (confirmation + tracking page). */
+export function getOrder(reference: string): Promise<OrderDetail> {
+  return apiFetch<OrderDetail>(`/orders/${encodeURIComponent(reference)}`);
+}
+
+/** Lightweight order status (for polling the tracking page). */
+export function getOrderStatus(reference: string): Promise<OrderStatusResponse> {
+  return apiFetch<OrderStatusResponse>(`/orders/${encodeURIComponent(reference)}/status`);
 }

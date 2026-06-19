@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import ke.co.avenuegrill.dto.StoreStatusDto;
+import ke.co.avenuegrill.service.OrderService;
 import ke.co.avenuegrill.service.StoreService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ class StoreControllerTest {
 
     @MockitoBean
     private StoreService storeService;
+
+    @MockitoBean
+    private OrderService orderService;
 
     @Test
     void returnsStoreStatus() throws Exception {

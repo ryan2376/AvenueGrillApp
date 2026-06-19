@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Minus, Plus, Trash2, X, MessageCircle, Clock } from "lucide-react";
+import Link from "next/link";
+import { Minus, Plus, Trash2, X, MessageCircle, Clock, ShoppingBag } from "lucide-react";
 import {
   useCart,
   cartSubtotalKes,
@@ -130,7 +131,7 @@ export function CartDrawer({
               </span>
             </div>
             <p className="mt-1 text-xs text-brand-charcoal/50">
-              Delivery fee is confirmed on delivery. Online checkout & M-Pesa are coming soon.
+              Delivery fee is calculated at checkout from your area. Pay with M-Pesa or cash on delivery.
             </p>
 
             {!storeOpenNow && (
@@ -140,20 +141,43 @@ export function CartDrawer({
               </p>
             )}
 
+            {/* Primary: full checkout */}
+            <Link
+              href={canOrder ? "/checkout" : "#"}
+              onClick={(e) => {
+                if (!canOrder) {
+                  e.preventDefault();
+                  return;
+                }
+                closeCart();
+              }}
+              aria-disabled={!canOrder}
+              className={cn(
+                "mt-4 flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold text-white transition-colors",
+                canOrder
+                  ? "bg-brand-orange hover:bg-brand-amber"
+                  : "pointer-events-none bg-brand-charcoal/30",
+              )}
+            >
+              <ShoppingBag className="h-5 w-5" />
+              Checkout
+            </Link>
+
+            {/* Secondary: quick order on WhatsApp */}
             <a
               href={canOrder ? whatsappLink(buildWhatsAppOrder(lines)) : undefined}
               target="_blank"
               rel="noopener noreferrer"
               aria-disabled={!canOrder}
               className={cn(
-                "mt-4 flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-base font-semibold text-white transition-colors",
+                "mt-2 flex w-full items-center justify-center gap-2 rounded-xl border px-6 py-3 text-sm font-semibold transition-colors",
                 canOrder
-                  ? "bg-[#25D366] hover:bg-[#1ebe5b]"
-                  : "pointer-events-none bg-brand-charcoal/30",
+                  ? "border-[#25D366] text-[#1ebe5b] hover:bg-[#25D366]/10"
+                  : "pointer-events-none border-brand-charcoal/20 text-brand-charcoal/30",
               )}
             >
               <MessageCircle className="h-5 w-5" />
-              Order on WhatsApp
+              Order on WhatsApp instead
             </a>
             <button
               type="button"

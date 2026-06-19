@@ -13,9 +13,11 @@ export const site = {
   url: "https://avenuegrillrestaurant.co.ke",
 
   // Contact
-  phoneDisplay: "0741 029 405",
-  phoneIntl: "254741029405", // tel/wa.me format
-  whatsapp: "254741029405",
+  // NOTE: temporary owner number used site-wide while Avenue Grill's line is unavailable.
+  // TODO: revert to Avenue Grill's number — phoneDisplay "0741 029 405", intl/whatsapp "254741029405".
+  phoneDisplay: "0790 928 660",
+  phoneIntl: "254790928660", // tel/wa.me format
+  whatsapp: "254790928660",
   email: "hello@avenuegrillrestaurant.co.ke", // placeholder — confirm real address
 
   address: {

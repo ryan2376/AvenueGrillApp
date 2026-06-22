@@ -49,8 +49,10 @@ export function Footer() {
               aria-label="TikTok"
               className="rounded-full bg-brand-green700 p-2 transition-colors hover:bg-brand-orange hover:text-white"
             >
-              {/* lucide has no TikTok glyph; use a music note as a stand-in */}
-              <span className="block h-4 w-4 text-center text-xs font-bold leading-4">TT</span>
+              {/* lucide has no TikTok glyph — inline brand SVG */}
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+                <path d="M16.5 3c.3 2.2 1.6 3.7 3.7 3.9v2.5c-1.3.1-2.5-.3-3.7-1v5.9c0 3.4-2.6 5.7-5.8 5.2-2.6-.4-4.3-2.6-4.1-5.2.2-2.4 2.2-4.3 4.7-4.2.3 0 .6 0 1 .1v2.7c-.3-.1-.6-.2-1-.2-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2V3h3.5z" />
+              </svg>
             </a>
           </div>
         </div>

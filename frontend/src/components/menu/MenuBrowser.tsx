@@ -86,7 +86,7 @@ export function MenuBrowser() {
       )}
 
       {/* Category quick-nav */}
-      <nav className="sticky top-[57px] z-30 border-b border-brand-charcoal/10 bg-brand-cream/90 backdrop-blur sm:top-[65px]">
+      <nav className="sticky top-[var(--header-h)] z-30 border-b border-brand-charcoal/10 bg-brand-cream/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-6 py-3">
           {categories.map((c) => (
             <a

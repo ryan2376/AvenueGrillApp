@@ -4,6 +4,14 @@
 
 :root {
   color-scheme: light;
+  /* Header height — sticky sub-navs derive their offset from this. */
+  --header-h: 4rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-h: 4.5rem;
+  }
 }
 
 @layer base {
@@ -11,12 +19,29 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans;
+    @apply bg-brand-cream font-sans text-body text-brand-charcoal antialiased;
   }
   h1,
   h2,
   h3 {
-    @apply font-display;
+    @apply font-display text-brand-green;
+  }
+  /* Sensible defaults from the type scale (components can still override). */
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+}
+
+@layer components {
+  /* Small, tracked section kicker — used sparingly. */
+  .eyebrow {
+    @apply text-eyebrow font-semibold uppercase text-brand-orange;
   }
 }
 

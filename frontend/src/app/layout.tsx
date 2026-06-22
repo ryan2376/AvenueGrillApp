@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const display = Playfair_Display({
+// Display: Fraunces — a warm, characterful serif for headlines.
+const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  axes: ["opsz"],
 });
 
-const sans = Poppins({
+// Body/UI: Hanken Grotesk — a quiet, premium humanist workhorse.
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });

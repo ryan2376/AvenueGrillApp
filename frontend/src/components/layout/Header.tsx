@@ -17,16 +17,16 @@ export function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-charcoal/10 bg-brand-cream/90 backdrop-blur supports-[backdrop-filter]:bg-brand-cream/75">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Logo (wordmark included in the image) — black-text version for the light header */}
+    <header className="sticky top-0 z-50 border-b border-brand-charcoal/10 bg-brand-cream/85 backdrop-blur supports-[backdrop-filter]:bg-brand-cream/70">
+      <nav className="mx-auto flex h-[var(--header-h)] max-w-content items-center justify-between px-5 sm:px-6">
+        {/* Logo lockup */}
         <Link href="/" className="flex items-center" aria-label={site.name}>
           <Image
             src="/brand/logo-dark.png"
             alt={`${site.name} logo`}
             width={1274}
             height={837}
-            className="h-12 w-auto sm:h-14"
+            className="h-9 w-auto sm:h-10"
             priority
           />
         </Link>
@@ -38,10 +38,10 @@ export function Header() {
               <Link
                 href={link.href}
                 className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                  "rounded-lg px-3 py-2 text-small font-medium transition-colors",
                   isActive(link.href)
-                    ? "bg-brand-green/10 text-brand-green"
-                    : "text-brand-charcoal/70 hover:text-brand-green",
+                    ? "text-brand-green"
+                    : "text-brand-charcoal/60 hover:text-brand-green",
                 )}
               >
                 {link.label}
@@ -50,16 +50,16 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Desktop CTAs */}
-        <div className="hidden items-center gap-3 md:flex">
+        {/* Desktop CTAs — one primary action; phone is a quiet icon link */}
+        <div className="hidden items-center gap-2 md:flex">
           <a
             href={`tel:${site.phoneIntl}`}
-            className="inline-flex items-center gap-2 text-sm font-medium text-brand-green hover:text-brand-orange"
+            aria-label={`Call ${site.phoneDisplay}`}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-brand-green/80 transition-colors hover:bg-brand-green/10 hover:text-brand-green"
           >
             <Phone className="h-4 w-4" aria-hidden />
-            {site.phoneDisplay}
           </a>
-          <WhatsAppOrderButton size="sm" label="Order Now" />
+          <WhatsAppOrderButton size="sm" label="Order" />
         </div>
 
         {/* Mobile toggle */}
@@ -77,14 +77,14 @@ export function Header() {
       {/* Mobile menu */}
       {open && (
         <div className="border-t border-brand-charcoal/10 bg-brand-cream md:hidden">
-          <ul className="space-y-1 px-4 py-3">
+          <ul className="space-y-1 px-5 py-3">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block rounded-lg px-3 py-2 text-base font-medium",
+                    "block rounded-lg px-3 py-2.5 text-base font-medium",
                     isActive(link.href)
                       ? "bg-brand-green/10 text-brand-green"
                       : "text-brand-charcoal/80",
@@ -95,10 +95,10 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col gap-3 border-t border-brand-charcoal/10 px-4 py-4">
+          <div className="flex flex-col gap-3 border-t border-brand-charcoal/10 px-5 py-4">
             <a
               href={`tel:${site.phoneIntl}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-brand-green"
+              className="inline-flex items-center gap-2 text-small font-medium text-brand-green"
             >
               <Phone className="h-4 w-4" aria-hidden />
               {site.phoneDisplay}

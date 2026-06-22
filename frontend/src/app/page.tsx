@@ -1,8 +1,8 @@
 import { Hero } from "@/components/sections/Hero";
-import { ValueProps } from "@/components/sections/ValueProps";
+import { StoryStrip } from "@/components/sections/StoryStrip";
 import { SignatureFavorites } from "@/components/sections/SignatureFavorites";
-import { ServicesStrip } from "@/components/sections/ServicesStrip";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { DeliveryBand } from "@/components/sections/DeliveryBand";
+import { ClosingCta } from "@/components/sections/ClosingCta";
 import { site } from "@/lib/site";
 
 const restaurantJsonLd = {
@@ -38,10 +38,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
       />
       <Hero />
-      <ValueProps />
+      <StoryStrip />
       <SignatureFavorites />
-      <ServicesStrip />
-      <CtaBand />
+      <DeliveryBand />
+      <ClosingCta />
     </>
   );
 }

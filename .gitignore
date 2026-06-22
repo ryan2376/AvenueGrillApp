@@ -6,6 +6,9 @@
 # ─── Source brand & food images (large originals; web-optimized copies live in frontend/public) ───
 /images/
 
+# ─── Local design reference screenshots (not part of the shipped app) ───
+/frontend/public/currentlook/
+
 # ─── Secrets & environment ───
 .env
 .env.*

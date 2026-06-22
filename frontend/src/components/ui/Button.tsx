@@ -14,8 +14,9 @@ export const buttonVariants = cva(
         primary: "bg-brand-orange text-white hover:bg-brand-amber",
         secondary:
           "border border-brand-green/30 text-brand-green hover:bg-brand-green hover:text-brand-cream",
+        whatsapp: "bg-[#25D366] text-white hover:bg-[#1ebe5b] focus-visible:ring-[#25D366]",
         ghost: "text-brand-green hover:bg-brand-green/10",
-        onDark: "border border-brand-cream/40 text-brand-cream hover:bg-brand-green700",
+        onDark: "border border-brand-cream/50 text-brand-cream hover:bg-brand-cream hover:text-brand-green",
       },
       size: {
         sm: "px-4 py-2 text-sm",

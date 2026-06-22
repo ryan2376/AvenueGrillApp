@@ -28,11 +28,7 @@ export function WhatsAppOrderButton({
       href={whatsappLink(text)}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        buttonVariants({ size }),
-        "bg-[#25D366] text-white hover:bg-[#1ebe5b] focus-visible:ring-[#25D366]",
-        className,
-      )}
+      className={cn(buttonVariants({ variant: "whatsapp", size }), className)}
     >
       <MessageCircle className="h-5 w-5" aria-hidden />
       {label}
